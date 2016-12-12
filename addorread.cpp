@@ -100,9 +100,9 @@ void AddOrRead::on_ReadFile_clicked()
         auto SelectedPath = ui->listWidget_2->currentItem();
 
         QString filePath = QString::fromStdString((lockbox/name).string()+'/'+SelectedPath->text().toStdString());
-        QFile file(filePath);
+        QFile file(filePath); // ifstream иили QFile?
         if (!exists(path(filePath.toStdString()))){
-            delete SelectedPath;
+            delete SelectedPath; // вряд ли это правильное действие. Надо сначала из listWidget_2 убрать item, нет?
             throw "this file was deleted :c";
         }
 

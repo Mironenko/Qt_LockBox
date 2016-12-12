@@ -5,7 +5,7 @@
 
 Crypto::Crypto()
 {
-     Botan::InitializationVector init;
+     Botan::InitializationVector init; // бессмысленная строчка
 }
 
 string Crypto::MyShifr(string line, string log, string pas, bool ok)

@@ -7,9 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    lockbox = path("/home/nikolay/QtProjects/FirstProject/lockbox");
+    lockbox = path("/home/nikolay/QtProjects/FirstProject/lockbox"); // hardcoded
     newUser = new NewUser(this, lockbox.string());
-    AOR = new AddOrRead(0, lockbox);
+    AOR = new AddOrRead(0, lockbox); // this for first param?
 
     ui->setupUi(this);
 
@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete AOR;
-    //delete newUser;
+    //delete newUser; // del
     delete ui;
 }
 
@@ -62,7 +62,7 @@ void MainWindow::on_LogIn_clicked()
 
         path a(lockbox.string()+"/"+name);
         if (!exists(a))
-            throw "Sorry! This user was deleted :(";
+            throw "Sorry! This user was deleted :("; // не надо ли тут создавать новый файл?
 
         AOR->show();
         emit UserChange(path(name));
